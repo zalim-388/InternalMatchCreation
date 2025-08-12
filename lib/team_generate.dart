@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:internal_match_creation/team_generate.dart';
 
-class PlayersJoinList extends StatefulWidget {
-  const PlayersJoinList({super.key});
+class TeamGenerate extends StatefulWidget {
+  const TeamGenerate({super.key});
 
   @override
-  State<PlayersJoinList> createState() => _PlayersJoinListState();
+  State<TeamGenerate> createState() => _TeamGenerateState();
 }
 
-class _PlayersJoinListState extends State<PlayersJoinList> {
+class _TeamGenerateState extends State<TeamGenerate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 4,
          automaticallyImplyLeading: false, 
+        elevation: 4,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         centerTitle: true,
@@ -34,103 +33,20 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 17.h),
-
-              Container(
-                height: 153.h,
-                width: 343.w,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(width: 1.w, color: Color(0xFFEDF1F3)),
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 14.w),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 12.h),
-
-                        Row(
-                          children: [
-                            SvgPicture.asset(""),
-                            Text(
-                              'Game Announcement',
-                              style: TextStyle(
-                                height: 1.6.h,
-                                fontSize: 12.h,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xFF061D3D),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 12.h),
-                        Text(
-                          'Practice Match',
-                          style: TextStyle(
-                            height: 1.6.h,
-                            fontSize: 12.h,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF061D3D),
-                          ),
-                        ),
-                        SizedBox(height: 12.h),
-
-                        Text(
-                          'Date - 22-06-2025',
-                          style: TextStyle(
-                            height: 1.6.h,
-                            fontSize: 12.h,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF061D3D),
-                          ),
-                        ),
-                        SizedBox(height: 12.h),
-
-                        Text(
-                          'Time - 7:00 PM',
-                          style: TextStyle(
-                            height: 1.6.h,
-                            fontSize: 12.h,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF061D3D),
-                          ),
-                        ),
-                        SizedBox(height: 12.h),
-
-                        Text(
-                          'Location - Malapuram, kerala',
-                          style: TextStyle(
-                            height: 1.6.h,
-                            fontSize: 12.h,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF061D3D),
-                          ),
-                        ),
-                        SizedBox(height: 13.h),
-                      ],
-                    ),
-                  ),
+              SizedBox(height: 13.h),
+              Text(
+                "Players List",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  height: 1.0.h,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF061D3D),
                 ),
               ),
-
               SizedBox(height: 14.h),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Confirmed Players ( 10 )",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF061D3D),
-                  ),
-                ),
-              ),
 
-              SizedBox(height: 14.h),
               Container(
                 // height: 448.h,
                 // width: 343.w,
@@ -142,43 +58,49 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 24.h),
-                    _buildConfirmedPlayers(
+                    SizedBox(height: 16.h),
+                    _buildTeams(
+                      Teamname: "Team A ( 5 )",
                       playername: "Gavi",
                       countryname: "Spain",
                       svgpicture: "assets/image.svg",
                     ),
-                    _buildConfirmedPlayers(
+
+                    _buildTeams(
                       playername: "Pedri",
                       countryname: "Spain",
                       svgpicture: "assets/image (1).svg",
                     ),
-                    _buildConfirmedPlayers(
+                    _buildTeams(
                       playername: "Torre",
                       countryname: "Spain",
                       svgpicture: "",
                     ),
-                    _buildConfirmedPlayers(
+                    _buildTeams(
                       playername: "Lopez",
                       countryname: "Spain",
+                      showDivider: false,
                       svgpicture: "",
                     ),
-                    _buildConfirmedPlayers(
+                    SizedBox(height: 26.h),
+                    _buildTeams(
+                      Teamname: "Team b ( 5 )",
+
                       playername: "Casado",
                       countryname: "Denmark",
                       svgpicture: "",
                     ),
-                    _buildConfirmedPlayers(
+                    _buildTeams(
                       playername: "Olmo",
                       countryname: "Spain",
                       svgpicture: "",
                     ),
-                    _buildConfirmedPlayers(
+                    _buildTeams(
                       playername: "Dejong",
                       countryname: "Netherlands",
                       svgpicture: "",
                     ),
-                    _buildConfirmedPlayers(
+                    _buildTeams(
                       playername: "Garcia",
                       countryname: "Spain",
                       svgpicture: "",
@@ -187,7 +109,7 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
                   ],
                 ),
               ),
-              SizedBox(height: 16.h),
+              SizedBox(height: 81.h),
               Row(
                 children: [
                   SizedBox(
@@ -199,19 +121,19 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
                         shape: RoundedRectangleBorder(
                           side: BorderSide(
                             width: 1.w,
-                            color: Color(0xFFEDF1F3),
+                            color: Color(0xFF67B311),
                           ),
                           borderRadius: BorderRadius.circular(6.r),
                         ),
                       ),
                       onPressed: () {},
                       child: Text(
-                        "No Of Team",
+                        "Re-Generate",
                         style: TextStyle(
                           fontSize: 9.sp,
                           height: 1.4.h,
                           fontWeight: FontWeight.w400,
-                          color: Color(0xFF1A1C1E),
+                          color: Color(0xFF67B311),
                         ),
                       ),
                     ),
@@ -229,16 +151,9 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
                           borderRadius: BorderRadius.circular(6.r),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TeamGenerate(),
-                          ),
-                        );
-                      },
+                      onPressed: () {},
                       child: Text(
-                        "Generate",
+                        "Confirom",
                         style: TextStyle(
                           fontSize: 12.sp,
                           height: 1.4.h,
@@ -250,8 +165,7 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
                   ),
                 ],
               ),
-
-              SizedBox(height: 17.h),
+              SizedBox(height: 24.h),
             ],
           ),
         ),
@@ -260,7 +174,37 @@ class _PlayersJoinListState extends State<PlayersJoinList> {
   }
 }
 
-Widget _buildConfirmedPlayers({
+Widget _buildTeams({
+  String? Teamname,
+  required String playername,
+  required String countryname,
+  required String svgpicture,
+  bool? showDivider,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        Teamname ?? "",
+        style: TextStyle(
+          fontSize: 14.sp,
+          height: 1.0.h,
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF061D3D),
+        ),
+      ),
+      SizedBox(height: 13.h),
+      _buildPlayersList(
+        playername: playername,
+        countryname: countryname,
+        svgpicture: svgpicture,
+        showDivider: showDivider ?? false,
+      ),
+    ],
+  );
+}
+
+Widget _buildPlayersList({
   required String playername,
   required String countryname,
   required String svgpicture,

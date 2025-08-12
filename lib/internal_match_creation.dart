@@ -11,14 +11,37 @@ class InternalMatchCreation extends StatefulWidget {
 }
 
 class _InternalMatchCreationState extends State<InternalMatchCreation> {
+  final TextEditingController _matchNameController = TextEditingController();
+  final TextEditingController _groundController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _maxPlayersController = TextEditingController();
+  final TextEditingController _fromDateController = TextEditingController();
+  final TextEditingController _toDateController = TextEditingController();
+
   String? _invitationType;
   String? _invitationSendTime;
   String? _sendReminder;
+  final List<String> daysOfWeek = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
+
   @override
+  void initState() {
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        automaticallyImplyLeading: false,
+        surfaceTintColor: Colors.transparent,
+        elevation: 4,
         backgroundColor: Colors.white,
         leading: Container(
           height: 32.h,
@@ -64,51 +87,64 @@ class _InternalMatchCreationState extends State<InternalMatchCreation> {
                         _buildTextfield(
                           label: "Match name",
                           hintText: "Enter Match Name",
+                          controller: _matchNameController,
                         ),
                         SizedBox(height: 14.h),
                         _buildTextfield(
                           label: "Ground",
                           hintText: "Enter Ground Name",
+                          controller: _groundController,
                         ),
 
                         SizedBox(height: 14.h),
                         _buildTextfield(
                           label: "Location",
                           hintText: "Enter Location",
+                          controller: _locationController,
                         ),
 
                         SizedBox(height: 14.h),
                         _buildTextfield(
                           label: "Maximum Player",
                           hintText: "Enter Maximum Player",
+                          controller: _maxPlayersController,
                         ),
                         SizedBox(height: 14.h),
                         Row(
                           children: [
                             Expanded(
-                              child: _buildDateField(context, "From Date", ""),
+                              child: _buildDateField(
+                                context,
+                                "From Date",
+                                controller: _fromDateController,
+                              ),
                             ),
                             SizedBox(width: 27.w),
 
                             Expanded(
-                              child: _buildDateField(context, "To Date", ""),
+                              child: _buildDateField(
+                                context,
+                                "To Date",
+                                controller: _toDateController,
+                              ),
                             ),
                           ],
                         ),
                         SizedBox(height: 14.h),
 
-                        _buildDaySchedule('Monday'),
+                        ...daysOfWeek.map((day) => _buildDaySchedule(day)),
+                        // _buildDaySchedule('Monday'),
 
-                        _buildDaySchedule('Tuesday'),
+                        // _buildDaySchedule('Tuesday'),
 
-                        _buildDaySchedule('Wednesday'),
+                        // _buildDaySchedule('Wednesday'),
 
-                        _buildDaySchedule('Thursday'),
+                        // _buildDaySchedule('Thursday'),
 
-                        _buildDaySchedule('Friday'),
-                        _buildDaySchedule('Saturday'),
+                        // _buildDaySchedule('Friday'),
+                        // _buildDaySchedule('Saturday'),
 
-                        _buildDaySchedule('Sunday'),
+                        // _buildDaySchedule('Sunday'),
                         SizedBox(height: 15.h),
                         _buildDropdownField(
                           "Invitation type",
@@ -144,7 +180,7 @@ class _InternalMatchCreationState extends State<InternalMatchCreation> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xFF67B311),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6),
+                                borderRadius: BorderRadius.circular(6.r),
                               ),
                             ),
                             onPressed: () {
@@ -182,7 +218,7 @@ class _InternalMatchCreationState extends State<InternalMatchCreation> {
 Widget _buildTextfield({
   required String label,
   required String hintText,
-
+  required TextEditingController controller,
   TextInputType? keyboardType,
 }) {
   return Column(
@@ -203,6 +239,7 @@ Widget _buildTextfield({
       SizedBox(
         height: 34.h,
         child: TextFormField(
+          controller: controller,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: TextStyle(
@@ -234,10 +271,9 @@ Widget _buildTextfield({
 
 Widget _buildDateField(
   BuildContext context,
-  String label,
-  String hint,
-  // TextEditingController controller,
-) {
+  String label, {
+  required TextEditingController controller,
+}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -250,16 +286,20 @@ Widget _buildDateField(
         ),
       ),
       SizedBox(height: 4.h),
-
       SizedBox(
         height: 34.h,
-
         child: TextFormField(
-          // controller: controller,
-          readOnly: true,
+          controller: controller,
+          // readOnly: true, // This prevents keyboard from showing
           decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 11.sp),
+            suffixIcon: Padding(
+              padding: EdgeInsets.all(8.w),
+              child: SvgPicture.asset(
+                "assets/Component 1.svg",
+                height: 16.h,
+                width: 16.w,
+              ),
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6.r),
               borderSide: BorderSide(color: Colors.grey.shade300),
@@ -272,16 +312,7 @@ Widget _buildDateField(
               borderRadius: BorderRadius.circular(6.r),
               borderSide: BorderSide(color: Colors.green),
             ),
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 12.w,
-              vertical: 12.h,
-            ),
-            suffix: SvgPicture.asset(
-              "assets/Component 1.svg",
-
-              height: 16.h,
-              width: 16.w,
-            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
           ),
           onTap: () async {
             DateTime? pickedDate = await showDatePicker(
@@ -290,10 +321,10 @@ Widget _buildDateField(
               firstDate: DateTime.now(),
               lastDate: DateTime(2030),
             );
-            // if (pickedDate != null) {
-            //   controller.text =
-            //       "${pickedDate.day.toString().padLeft(2, '0')} - ${pickedDate.month.toString().padLeft(2, '0')} - ${pickedDate.year}";
-            // }
+            if (pickedDate != null) {
+              controller.text =
+                  "${pickedDate.day.toString().padLeft(2, '0')} - ${pickedDate.month.toString().padLeft(2, '0')} - ${pickedDate.year}";
+            }
           },
         ),
       ),
@@ -306,42 +337,52 @@ Widget _buildDaySchedule(String day) {
   return StatefulBuilder(
     builder: (context, setState) {
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Checkbox(
-                side: BorderSide(width: 1.25.w, color: Color(0xFF67B311)),
-                value: _isChecked,
-                onChanged: (bool? value) {
-                  setState(() {
-                    _isChecked = value ?? false;
-                  });
-                },
-                activeColor: const Color(0xFF6ABF4B),
+          Container(
+            height: 40.h,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 20.h,
+                  width: 20.w,
+                  child: Checkbox(
+                    side: BorderSide(width: 1.25.w, color: Color(0xFF67B311)),
+                    value: _isChecked,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _isChecked = value ?? false;
+                      });
+                    },
+                    activeColor: const Color(0xFF6ABF4B),
 
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2.r),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(2.r),
+                    ),
+                  ),
                 ),
-              ),
-              SizedBox(width: 6.w),
-              Text(
-                day,
-                style: TextStyle(
-                  color: Colors.black,
+                SizedBox(width: 6.w),
+                Text(
+                  day,
+                  style: TextStyle(
+                    color: Colors.black,
 
-                  fontWeight: FontWeight.w100,
-                  fontSize: 10.sp,
+                    fontWeight: FontWeight.w100,
+                    fontSize: 10.sp,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           SizedBox(height: 6.h),
 
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: _buildTimeField("  'From Time'")),
+              Expanded(child: _buildTimeField('From Time', context)),
               SizedBox(width: 26.h),
-              Expanded(child: _buildTimeField('To Time')),
+              Expanded(child: _buildTimeField('To Time', context)),
             ],
           ),
         ],
@@ -350,7 +391,7 @@ Widget _buildDaySchedule(String day) {
   );
 }
 
-Widget _buildTimeField(String label) {
+Widget _buildTimeField(String label, BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -369,7 +410,6 @@ Widget _buildTimeField(String label) {
       ),
       SizedBox(
         height: 26.h,
-        width: 145.w,
         child: TextFormField(
           readOnly: true,
           decoration: InputDecoration(
@@ -379,14 +419,14 @@ Widget _buildTimeField(String label) {
               color: Color(0xFF8C8C8C),
               fontSize: 8.sp,
             ),
-
-            suffix: SvgPicture.asset(
-              "assets/Component 1.svg",
-
-              height: 16.h,
-              width: 16.w,
+            suffixIcon: Padding(
+              padding: EdgeInsets.all(8.w),
+              child: SvgPicture.asset(
+                "assets/Frame (12).svg",
+                height: 16.h,
+                width: 16.w,
+              ),
             ),
-
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6.r),
               borderSide: BorderSide(color: Colors.grey.shade300),
@@ -402,15 +442,13 @@ Widget _buildTimeField(String label) {
             contentPadding: EdgeInsets.symmetric(horizontal: 10),
           ),
           onTap: () async {
-            // // TODO: Implement time picker logic
-            // TimeOfDay? selectedTime = await showTimePicker(
-            //   context: context,
-            //   initialTime: TimeOfDay.now(),
-            // );
-            // if (selectedTime != null) {
-            //   // Handle selected time
-            //   print('Selected time: ${selectedTime.format(context)}');
-            // }
+            TimeOfDay? selectedTime = await showTimePicker(
+              context: context,
+              initialTime: TimeOfDay.now(),
+            );
+            if (selectedTime != null) {
+              print('Selected time: ${selectedTime.format(context)}');
+            }
           },
         ),
       ),
