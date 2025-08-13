@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:internal_match_creation/internal_match_creation.dart';
-import 'package:internal_match_creation/players_join_list.dart';
+import 'package:internal_match_creation/profile_creation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +21,9 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeData(useMaterial3: true, fontFamily: "Montserrat"),
           // home: PlayersJoinList(),
-          home: InternalMatchCreation(),
+         //  home: InternalMatchCreation(),
+        home: ProfileCreation(),
+        // home: PlayersJoinList(),
         );
       },
     );
