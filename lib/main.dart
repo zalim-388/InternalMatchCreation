@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:internal_match_creation/Admin_Score_Update_Screen.dart';
 import 'package:internal_match_creation/profile_creation.dart';
 
 void main() {
@@ -21,9 +22,9 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeData(useMaterial3: true, fontFamily: "Montserrat"),
           // home: PlayersJoinList(),
-         //  home: InternalMatchCreation(),
-        home: ProfileCreation(),
-        // home: PlayersJoinList(),
+          //  home: InternalMatchCreation(),
+          home: AdminScoreUpdateScreen(),
+          // home: PlayersJoinList(),
         );
       },
     );
