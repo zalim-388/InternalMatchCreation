@@ -121,13 +121,18 @@ class _AdminScoreUpdateScreenState extends State<AdminScoreUpdateScreen> {
                               borderRadius: BorderRadius.circular(16.w),
                             ),
                             alignment: Alignment.center,
-                            child: Text(
-                              'Kick-off',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                                height: 1.0,
-                                fontWeight: FontWeight.w400,
+                            child: TextButton(
+                              onPressed: () {
+                                _kickoff(context);
+                              },
+                              child: Text(
+                                'Kick-off',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11,
+                                  height: 1.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
                           ),
@@ -750,4 +755,101 @@ class _SummaryState extends State<Summary> {
       ),
     );
   }
+}
+
+Future<void> _kickoff(BuildContext context) async {
+  return showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
+        child: Container(
+          height: 122.h,
+          width: 343.w,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 26.h),
+
+                Text(
+                  "Are you ready to kick off?",
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF1C1C1C),
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 34.h,
+                        width: 140.w,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0x1ADE3303),
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1.w,
+                                color: Color(0xFFDE3303),
+                              ),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            "Cancel",
+                            style: TextStyle(
+                              color: Color(0xFFDE3303),
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 23.w),
+                    Expanded(
+                      child: SizedBox(
+                        height: 34.h,
+                        width: 140.w,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF67B311),
+
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            "Kick-Off",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
