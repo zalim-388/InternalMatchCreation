@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LiveControl extends StatefulWidget {
   const LiveControl({super.key});
@@ -305,7 +306,8 @@ class _LiveControlState extends State<LiveControl> {
                       width: 140.w,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0x1AEE8B00),
+                          backgroundColor: Color(0xFFFFFAF0),
+
                           shape: RoundedRectangleBorder(
                             side: BorderSide(
                               width: 1.w,
@@ -355,97 +357,87 @@ class _LiveControlState extends State<LiveControl> {
               SizedBox(height: 16.h),
 
               Container(
-                margin: EdgeInsets.all(16.w),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
-                      blurRadius: 10,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
+                  borderRadius: BorderRadius.circular(8.r),
+                  border: Border.all(width: 1.w, color: Color(0xFFEDF1F3)),
                 ),
                 child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.all(16.w),
-                    child: Column(
-                      children: [
-                        // Full Time Score
-                        _buildScoreEvent("81'", "1 - 1", isScore: true),
+                  child: Column(
+                    children: [
+                      // Full Time Score
+                      _buildScoreEvent("81'", "1 - 1"),
 
-                        // Red Card
-                        _buildTimelineEvent(
-                          "68'",
-                          "R. Holding",
-                          EventType.redCard,
-                          isLeft: false,
-                        ),
+                      // Red Card
+                      _buildTimelineEvent(
+                        "68'",
+                        "R. Holding",
+                        EventType.redCard,
+                        isLeft: false,
+                      ),
 
-                        // Yellow Card
-                        _buildTimelineEvent(
-                          "63'",
-                          "B. Saka",
-                          EventType.yellowCard,
-                          isLeft: false,
-                        ),
+                      // Yellow Card
+                      _buildTimelineEvent(
+                        "63'",
+                        "B. Saka",
+                        EventType.yellowCard,
+                        isLeft: false,
+                      ),
 
-                        // Substitution
-                        _buildSubstitutionEvent(
-                          "63'",
-                          "R. Holding",
-                          "M. Ødegaard",
-                          isLeft: false,
-                        ),
+                      // Substitution
+                      _buildSubstitutionEvent(
+                        "63'",
+                        "R. Holding",
+                        "M. Ødegaard",
+                        isLeft: false,
+                      ),
 
-                        // Substitution
-                        _buildSubstitutionEvent(
-                          "63'",
-                          "I. Gundogan",
-                          "Gabriel Jesus",
-                          isLeft: true,
-                        ),
+                      // Substitution
+                      _buildSubstitutionEvent(
+                        "63'",
+                        "I. Gundogan",
+                        "Gabriel Jesus",
+                        isLeft: true,
+                      ),
 
-                        // Red Card
-                        _buildTimelineEvent(
-                          "59'",
-                          "Gabriel",
-                          EventType.redCard,
-                          isLeft: false,
-                        ),
+                      // Red Card
+                      _buildTimelineEvent(
+                        "59'",
+                        "Gabriel",
+                        EventType.redCard,
+                        isLeft: false,
+                      ),
 
-                        // Penalty and Yellow Card
-                        _buildPenaltyEvent(
-                          "57'",
-                          "R. Mahrez",
-                          "Gabriel",
-                          "1 - 1",
-                        ),
+                      // Penalty and Yellow Card
+                      _buildPenaltyEvent(
+                        "57'",
+                        "R. Mahrez",
+                        "Gabriel",
+                        "1 - 1",
+                      ),
 
-                        // Yellow Card
-                        _buildTimelineEvent(
-                          "55'",
-                          "G. Xhaka",
-                          EventType.yellowCard,
-                          isLeft: false,
-                        ),
+                      // Yellow Card
+                      _buildTimelineEvent(
+                        "55'",
+                        "G. Xhaka",
+                        EventType.yellowCard,
+                        isLeft: false,
+                      ),
 
-                        // Half Time
-                        _buildHalfTimeEvent("0 - 1"),
+                      // Half Time
+                      _buildHalfTimeEvent("0 - 1"),
 
-                        // Penalty
-                        _buildPenaltyEvent(
-                          "31'",
-                          "B. Saka",
-                          "K. Tierney",
-                          "0 - 1",
-                        ),
+                      // Penalty
+                      _buildPenaltyEvent(
+                        "31'",
+                        "B. Saka",
+                        "K. Tierney",
+                        "0 - 1",
+                      ),
 
-                        // Kick Off
-                        _buildKickOffEvent(),
-                      ],
-                    ),
+                      // Kick Off
+                      _buildKickOffEvent(),
+                    ],
                   ),
                 ),
               ),
@@ -457,17 +449,19 @@ class _LiveControlState extends State<LiveControl> {
   }
 }
 
-Widget _buildScoreEvent(String time, String score, {bool isScore = false}) {
+Widget _buildScoreEvent(String time, String score) {
   return Container(
     margin: EdgeInsets.symmetric(vertical: 8.h),
     child: Column(
       children: [
+        SizedBox(height: 8.h),
+
         Text(
           time,
           style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w600,
-            color: Colors.black87,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFF274893),
           ),
         ),
         SizedBox(height: 4.h),
@@ -475,11 +469,12 @@ Widget _buildScoreEvent(String time, String score, {bool isScore = false}) {
           score,
           style: TextStyle(
             fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-            color: Colors.black54,
+            fontWeight: FontWeight.w700,
+            color: Color(0xFF64666B),
           ),
         ),
-        SizedBox(height: 12.h),
+        SizedBox(height: 8.h),
+        Divider(thickness: 1, color: Color(0xFFEDF1F3)),
       ],
     ),
   );
@@ -491,42 +486,39 @@ Widget _buildTimelineEvent(
   EventType eventType, {
   required bool isLeft,
 }) {
-  return Container(
-    margin: EdgeInsets.symmetric(vertical: 8.h),
-    child: Row(
-      children: [
-        // Left side content
-        Expanded(
-          flex: 5,
-          child: isLeft ? _buildPlayerInfo(playerName, eventType) : SizedBox(),
-        ),
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(height: 8.h),
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (isLeft)
+            Expanded(child: _buildPlayerInfo(playerName, eventType))
+          else
+            Spacer(),
+          SizedBox(width: 21.w),
 
-        // Center time and icon
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [
-              Text(
-                time,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
-              ),
-              SizedBox(height: 4.h),
-              _buildEventIcon(eventType),
-            ],
+          Text(
+            time,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w700,
+              color: const Color(0xFF23262D),
+            ),
           ),
-        ),
 
-        // Right side content
-        Expanded(
-          flex: 5,
-          child: !isLeft ? _buildPlayerInfo(playerName, eventType) : SizedBox(),
-        ),
-      ],
-    ),
+          SizedBox(width: 21.w),
+
+          if (!isLeft)
+            Expanded(child: _buildPlayerInfo(playerName, eventType))
+          else
+            Spacer(),
+        ],
+      ),
+      SizedBox(height: 8.h),
+      Divider(thickness: 1, color: Color(0xFFEDF1F3)),
+    ],
   );
 }
 
@@ -536,46 +528,41 @@ Widget _buildSubstitutionEvent(
   String playerIn, {
   required bool isLeft,
 }) {
-  return Container(
-    margin: EdgeInsets.symmetric(vertical: 8.h),
-    child: Row(
-      children: [
-        // Left side content
-        Expanded(
-          flex: 5,
-          child:
-              isLeft ? _buildSubstitutionInfo(playerOut, playerIn) : SizedBox(),
-        ),
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(height: 15.h),
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(width: 30.w),
 
-        // Center time and icon
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [
-              Text(
-                time,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
-              ),
-              SizedBox(height: 4.h),
-              _buildEventIcon(EventType.substitution),
-            ],
+          if (isLeft)
+            Expanded(child: _buildSubstitutionInfo(playerOut, playerIn, isLeft))
+          else
+            Spacer(),
+          SizedBox(width: 21.w),
+
+          Text(
+            time,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w700,
+              color: const Color(0xFF23262D),
+            ),
           ),
-        ),
 
-        // Right side content
-        Expanded(
-          flex: 5,
-          child:
-              !isLeft
-                  ? _buildSubstitutionInfo(playerOut, playerIn)
-                  : SizedBox(),
-        ),
-      ],
-    ),
+          SizedBox(width: 21.w),
+
+          if (!isLeft)
+            Expanded(child: _buildSubstitutionInfo(playerOut, playerIn, isLeft))
+          else
+            Spacer(),
+        ],
+      ),
+      SizedBox(height: 15.h),
+      Divider(thickness: 1, color: Color(0xFFEDF1F3)),
+    ],
   );
 }
 
@@ -585,103 +572,105 @@ Widget _buildPenaltyEvent(
   String otherPlayer,
   String score,
 ) {
-  return Container(
-    margin: EdgeInsets.symmetric(vertical: 8.h),
-    child: Row(
-      children: [
-        // Left side
-        Expanded(
-          flex: 5,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                playerName,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
-                ),
-              ),
-              Text(
-                "Penalty",
-                style: TextStyle(fontSize: 10.sp, color: Colors.black54),
-              ),
-            ],
-          ),
-        ),
-
-        // Center
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [
-              Text(
-                time,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
-              ),
-              SizedBox(height: 4.h),
-              Container(
-                width: 20.w,
-                height: 20.h,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.black87, width: 1),
-                ),
-                child: Icon(
-                  Icons.sports_soccer,
-                  size: 12.w,
-                  color: Colors.black87,
-                ),
-              ),
-              SizedBox(height: 4.h),
-              Text(
-                score,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black54,
-                ),
-              ),
-            ],
-          ),
-        ),
-
-        // Right side
-        Expanded(
-          flex: 5,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                otherPlayer,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
-                ),
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: 12.w,
-                    height: 12.h,
-                    decoration: BoxDecoration(
-                      color: Colors.yellow,
-                      borderRadius: BorderRadius.circular(2.r),
-                    ),
+  return Column(
+    children: [
+      SizedBox(height: 8.h),
+      Row(
+        children: [
+          // Left side
+          Expanded(
+            flex: 5,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  playerName,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
                   ),
-                ],
-              ),
-            ],
+                ),
+                Text(
+                  "Penalty",
+                  style: TextStyle(fontSize: 10.sp, color: Colors.black54),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
+
+          // Center
+          Expanded(
+            flex: 2,
+            child: Column(
+              children: [
+                Text(
+                  time,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                Container(
+                  width: 20.w,
+                  height: 20.h,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.black87, width: 1),
+                  ),
+                  child: Icon(
+                    Icons.sports_soccer,
+                    size: 12.w,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                Text(
+                  score,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // Right side
+          Expanded(
+            flex: 5,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  otherPlayer,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 12.w,
+                      height: 12.h,
+                      decoration: BoxDecoration(
+                        color: Colors.yellow,
+                        borderRadius: BorderRadius.circular(2.r),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ],
   );
 }
 
@@ -738,79 +727,89 @@ Widget _buildKickOffEvent() {
 
 Widget _buildPlayerInfo(String playerName, EventType eventType) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.end,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
+      _buildEventIcon(eventType),
+
+      SizedBox(width: 8.w),
+
+      Text(
+        playerName,
+        style: TextStyle(
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w400,
+          color: Color(0xFF23262D),
+        ),
+      ),
+    ],
+  );
+}
+
+Widget _buildSubstitutionInfo(String playerOut, String playerIn, bool? isLeft) {
+  return Row(
+    children: [
+      if (isLeft != null && !isLeft) ...[
+        _buildEventIcon(EventType.substitution),
+        SizedBox(width: 8.w),
+      ],
+
       Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            playerName,
+            playerOut,
             style: TextStyle(
               fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black87,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF23262D),
+            ),
+          ),
+          Text(
+            playerIn,
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF939598),
             ),
           ),
         ],
       ),
+
       SizedBox(width: 8.w),
-      _buildEventIcon(eventType),
+      if (isLeft != null && isLeft) ...[
+        _buildEventIcon(EventType.substitution),
+      ],
     ],
   );
 }
 
-Widget _buildSubstitutionInfo(String playerOut, String playerIn) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.end,
-    children: [
-      Text(
-        playerOut,
-        style: TextStyle(
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w500,
-          color: Colors.black87,
-        ),
-      ),
-      Text(playerIn, style: TextStyle(fontSize: 11.sp, color: Colors.black54)),
-    ],
-  );
-}
+enum EventType { redCard, yellowCard, substitution, goal }
 
 Widget _buildEventIcon(EventType eventType) {
   switch (eventType) {
     case EventType.redCard:
-      return Container(
-        width: 12.w,
-        height: 16.h,
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(2.r),
-        ),
+      return SvgPicture.asset(
+        'assets/Component 1 (1).svg',
+        width: 20.w,
+        height: 20.h,
       );
     case EventType.yellowCard:
-      return Container(
-        width: 12.w,
-        height: 16.h,
-        decoration: BoxDecoration(
-          color: Colors.yellow,
-          borderRadius: BorderRadius.circular(2.r),
-        ),
+      return SvgPicture.asset(
+        'assets/Component 1 (2).svg',
+        width: 20.w,
+        height: 20.h,
       );
     case EventType.substitution:
-      return Container(
-        width: 20.w,
-        height: 20.h,
-        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.green),
-        child: Icon(Icons.swap_horiz, size: 12.w, color: Colors.white),
+      return SvgPicture.asset(
+        "assets/Substitue 2.svg",
+        height: 24.w,
+        width: 24.h,
       );
     case EventType.goal:
-      return Container(
+      return SvgPicture.asset(
+        'assets/bx_football.svg',
         width: 20.w,
         height: 20.h,
-        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
-        child: Icon(Icons.sports_soccer, size: 12.w, color: Colors.white),
       );
   }
 }
-
-enum EventType { redCard, yellowCard, substitution, goal }
