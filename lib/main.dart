@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:internal_match_creation/Admin_Score_Update_Screen.dart';
 import 'package:internal_match_creation/live_control.dart';
-import 'package:internal_match_creation/profile_creation.dart';
+import 'package:internal_match_creation/update_Score.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +25,8 @@ class MyApp extends StatelessWidget {
           //  home: InternalMatchCreation(),
           // home: AdminScoreUpdateScreen(),
           // home: PlayersJoinList(),
-          home: LiveControl(),
+         home: LiveControl(),
+    //  home: UpdateScore(),
         );
       },
     );
