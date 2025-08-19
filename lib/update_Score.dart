@@ -47,212 +47,263 @@ class _UpdateScoreState extends State<UpdateScore> {
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           children: [
-            Column(
-              children: [
-                SizedBox(height: 16.h),
-                Container(
-                  height: 160.h,
-                  width: 343.w,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0xFF292A6A), Color(0xFF442E8F)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+            SizedBox(height: 16.h),
+            Container(
+              height: 160.h,
+              width: 343.w,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF292A6A), Color(0xFF442E8F)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 21.w),
+                child: Column(
+                  children: [
+                    SizedBox(height: 18.h),
+                    Text(
+                      'Soccer Fc, Dubai Golden Cup',
+                      style: TextStyle(
+                        height: 1.0,
+                        color: Colors.white,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 21.w),
-                    child: Column(
+                    SizedBox(height: 4.h),
+                    Text(
+                      'Match 14 - ( Quarter-Final )',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13.sp,
+                        height: 1.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 14.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(height: 18.h),
-                        Text(
-                          'Soccer Fc, Dubai Golden Cup',
-                          style: TextStyle(
-                            height: 1.0,
-                            color: Colors.white,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 4.h),
-                        Text(
-                          'Match 14 - ( Quarter-Final )',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.sp,
-                            height: 1.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 14.h),
+                        // Team 1
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            // Team 1
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  Icons.sports_soccer,
-                                  size: 30.w,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(width: 8.w),
-                                Text(
-                                  'Team 1',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.sp,
-                                    height: 1.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                            Icon(
+                              Icons.sports_soccer,
+                              size: 30.w,
+                              color: Colors.white,
                             ),
-
-                            // Live score
-                            Container(
-                              width: 80.w,
-                              height: 24.h,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16.r),
-                                color: Colors.white.withOpacity(0.2),
+                            SizedBox(width: 8.w),
+                            Text(
+                              'Team 1',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.sp,
+                                height: 1.0,
+                                fontWeight: FontWeight.w500,
                               ),
-                              child: Center(
-                                child: Text(
-                                  '0 - 0',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            // Team 2
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  'Team 2',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.sp,
-                                    height: 1.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                SizedBox(width: 8.w),
-                                Icon(
-                                  Icons.sports_soccer,
-                                  size: 30.w,
-                                  color: Colors.white,
-                                ),
-                              ],
                             ),
                           ],
                         ),
-                        SizedBox(height: 18.h),
+
+                        // Live score
+                        Container(
+                          width: 80.w,
+                          height: 24.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16.r),
+                            color: Colors.white.withOpacity(0.2),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '0 - 0',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // Team 2
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Team 2',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.sp,
+                                height: 1.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(width: 8.w),
+                            Icon(
+                              Icons.sports_soccer,
+                              size: 30.w,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
                       ],
+                    ),
+                    SizedBox(height: 18.h),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 24.h),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 34.h,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF67B311),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Live Update",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: 24.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 34.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF67B311),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            "Live Update",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+
+                SizedBox(width: 15.w),
+
+                Expanded(
+                  child: SizedBox(
+                    height: 34.h,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF67B311),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Final Result",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 23.h),
+            Row(
+              children: [
+                Text(
+                  "Awards",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                    fontSize: 12.sp,
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  height: 20.h,
+                  width: 20.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4.r),
+                    border: Border.all(color: Color(0xFF67B311)),
+                  ),
+                  child: Icon(Icons.add, size: 12.sp, color: Color(0xFF67B311)),
+                ),
+              ],
+            ),
+            SizedBox(height: 16.h),
+            _buildTextfield(
+              label: "Player of the Match",
+              hintText: "Enter or Search",
+            ),
+            SizedBox(height: 14.h),
 
-                    SizedBox(width: 15.w),
+            _buildTextfield(label: "Award Tittle", hintText: "Enter or Search"),
+            SizedBox(height: 334.h),
 
-                    Expanded(
-                      child: SizedBox(
-                        height: 34.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF67B311),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 34.h,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFF3FAEC),
+                        elevation: 0,
+
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Color(0xFF67B311),
+                            width: 1.w,
                           ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            "Final Result",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Share",
+                        style: TextStyle(
+                          color: Color(0xFF67B311),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(height: 23.h),
-                Row(
-                  children: [
-                    Text(
-                      "Awards",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
-                        fontSize: 12.sp,
+                SizedBox(width: 34.w),
+                Expanded(
+                  child: SizedBox(
+                    height: 34.h,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF67B311),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Publish",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
-                    Spacer(),
-                    Container(
-                      height: 20.h,
-                      width: 20.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4.r),
-                        border: Border.all(color: Color(0xFF67B311)),
-                      ),
-                      child: Icon(
-                        Icons.add,
-                        size: 12.sp,
-                        color: Color(0xFF67B311),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16.h),
-                _buildTextfield(
-                  label: "Player of the Match",
-                  hintText: "Enter or Search",
-                ),
-                SizedBox(height: 14.h),
-
-                _buildTextfield(
-                  label: "Award Tittle",
-                  hintText: "Enter or Search",
+                  ),
                 ),
               ],
             ),
