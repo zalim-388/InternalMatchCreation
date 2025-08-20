@@ -1,7 +1,7 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:dotted_border/dotted_border.dart';
 
 class LiveControl extends StatefulWidget {
   const LiveControl({super.key});
@@ -153,7 +153,7 @@ class _LiveControlState extends State<LiveControl> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 18.h),
+                      SizedBox(height: 7.h),
                       Text(
                         textAlign: TextAlign.center,
                         'First Half',
@@ -167,15 +167,15 @@ class _LiveControlState extends State<LiveControl> {
                       SizedBox(height: 3.h),
                       // Timer and Status
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           // Timer section
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(width: 100.w),
+                              SizedBox(width: 109.w),
                               Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -320,7 +320,7 @@ class _LiveControlState extends State<LiveControl> {
                           ),
                         ),
                         onPressed: () {
-                          // Navigator.pop(context);
+                          finalresult(context);
                         },
                         child: Text(
                           "End 1St Half",
@@ -896,250 +896,261 @@ Future<void> PenaltyDialog(BuildContext context) {
       return Dialog(
         backgroundColor: Colors.white,
         child: Container(
-          height: 470.h,
+          height: 418.h,
           width: 343.w,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.r)),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 16.h),
-                Row(
-                  children: [
-                    Text(
-                      "Penalties",
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF061D3D),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 16.h),
+                  Row(
+                    children: [
+                      Text(
+                        "Penalties",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF061D3D),
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    InkWell(
-                      onTap: () => Navigator.of(context).pop(),
-                      child: Container(
-                        height: 20.h,
-                        width: 20.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
+                      Spacer(),
+                      InkWell(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Container(
+                          height: 20.h,
+                          width: 20.w,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Color(0xFF292A6A),
+                              width: 1.25.w,
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.close,
                             color: Color(0xFF292A6A),
-                            width: 1.25.w,
-                          ),
-                        ),
-                        alignment: Alignment.center,
-                        child: Icon(
-                          Icons.close,
-                          color: Color(0xFF292A6A),
-                          size: 15.sp,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 6.h),
-
-                Row(
-                  children: [
-                    Text(
-                      "First Kicker",
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF061D3D),
-                      ),
-                    ),
-                    Spacer(),
-                    Text(
-                      "Next: Team 1 • Kick 4 of 5",
-                      style: TextStyle(
-                        fontSize: 11.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF061D3D),
-                      ),
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 14.h),
-
-                /// ---------- Teams & Score ----------
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.sports_soccer,
-                          size: 30.w,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 6.w),
-                        Text(
-                          "Team 1",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF061D3D),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 12.w),
-                      height: 26.h,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF061D3D),
-                        borderRadius: BorderRadius.circular(16.r),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "3 - 2",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.bold,
+                            size: 15.sp,
                           ),
                         ),
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Team 2",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF061D3D),
-                          ),
-                        ),
-                        SizedBox(width: 6.w),
-                        Icon(
-                          Icons.sports_soccer,
-                          size: 30.w,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 8.h),
-
-                /// ---------- Penalty Circle Indicators ----------
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Team 1 circles
-                    Row(
-                      children: [
-                        _buildPenaltyCircle(isGoal: true), // Green - Goal
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isGoal: true), // Green - Goal
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isGoal: true), // Green - Goal
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isEmpty: true), // Empty - Not taken
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isEmpty: true), // Empty - Not taken
-                      ],
-                    ),
-                    // Team 2 circles
-                    Row(
-                      children: [
-                        _buildPenaltyCircle(isGoal: true), // Green - Goal
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isGoal: true), // Green - Goal
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isMiss: true), // Red - Miss
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isEmpty: true), // Empty - Not taken
-                        SizedBox(width: 4.w),
-                        _buildPenaltyCircle(isEmpty: true), // Empty - Not taken
-                      ],
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 20.h),
-
-                Text(
-                  "Suggestion Player",
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF061D3D),
+                    ],
                   ),
-                ),
 
-                SizedBox(height: 12.h),
+                  SizedBox(height: 6.h),
 
-                Wrap(
-                  spacing: 20.w,
-                  runSpacing: 14.h,
-                  children: [
-                    _buildPlayerButton("Gavi", "Spain", "assets/gavi.png"),
-                    _buildPlayerButton("Pedri", "Spain", "assets/pedri.png"),
-                    _buildPlayerButton("Torre", "Spain", "assets/torre.png"),
-                    _buildPlayerButton("Torre", "Spain", "assets/torre.png"),
-                    _buildPlayerButton("Torre", "Spain", "assets/torre.png"),
-                  ],
-                ),
-
-                SizedBox(height: 14.h),
-
-                /// ---------- TextField ----------
-                _buildTextfield(
-                  label: "Player Name",
-                  hintText: "Enter Player Name",
-                ),
-
-                SizedBox(height: 14.h),
-
-                /// ---------- Action Buttons ----------
-                Row(
-                  children: [
-                    _buildButton("⚽ Goal", Colors.green, null, () {}),
-                    SizedBox(width: 10.w),
-                    _buildButton("😔 Miss", Colors.red, null, () {}),
-                    SizedBox(width: 10.w),
-                    _buildButton(
-                      "Undo",
-                      Color(0xFFFFFAF0),
-                      Color(0xFFEE8B00),
-                      () {},
-                      textColor: Color(0xFFEE8B00),
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 16.h),
-                SizedBox(
-                  height: 34.h,
-                  width: 311.w,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1.w, color: Colors.green),
-                        borderRadius: BorderRadius.circular(6.r),
+                  Row(
+                    children: [
+                      Text(
+                        "First Kicker",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF061D3D),
+                        ),
                       ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "End Match",
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
+                      Spacer(),
+                      Text(
+                        "Next: Team 1 • Kick 4 of 5",
+                        style: TextStyle(
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF061D3D),
+                        ),
                       ),
+                    ],
+                  ),
+
+                  SizedBox(height: 14.h),
+
+                  /// ---------- Teams & Score ----------
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.sports_soccer,
+                            size: 30.w,
+                            color: Colors.black,
+                          ),
+                          SizedBox(width: 6.w),
+                          Text(
+                            "Team 1",
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF061D3D),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
+                        height: 26.h,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF061D3D),
+                          borderRadius: BorderRadius.circular(16.r),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "3 - 2",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Team 2",
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF061D3D),
+                            ),
+                          ),
+                          SizedBox(width: 6.w),
+                          Icon(
+                            Icons.sports_soccer,
+                            size: 30.w,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 8.h),
+
+                  /// ---------- Penalty Circle Indicators ----------
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Team 1 circles
+                      Row(
+                        children: [
+                          _buildPenaltyCircle(isGoal: true), // Green - Goal
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(isGoal: true), // Green - Goal
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(isGoal: true), // Green - Goal
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(
+                            isEmpty: true,
+                          ), // Empty - Not taken
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(
+                            isEmpty: true,
+                          ), // Empty - Not taken
+                        ],
+                      ),
+                      // Team 2 circles
+                      Row(
+                        children: [
+                          _buildPenaltyCircle(isGoal: true), // Green - Goal
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(isGoal: true), // Green - Goal
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(isMiss: true), // Red - Miss
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(
+                            isEmpty: true,
+                          ), // Empty - Not taken
+                          SizedBox(width: 4.w),
+                          _buildPenaltyCircle(
+                            isEmpty: true,
+                          ), // Empty - Not taken
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 20.h),
+
+                  Text(
+                    "Suggestion Player",
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF061D3D),
                     ),
                   ),
-                ),
-                SizedBox(height: 16.h),
-              ],
+
+                  SizedBox(height: 12.h),
+
+                  Wrap(
+                    spacing: 20.w,
+                    runSpacing: 14.h,
+                    children: [
+                      _buildPlayerButton("Gavi", "Spain", "assets/gavi.png"),
+                      _buildPlayerButton("Pedri", "Spain", "assets/pedri.png"),
+                      _buildPlayerButton("Torre", "Spain", "assets/torre.png"),
+                      _buildPlayerButton("Torre", "Spain", "assets/torre.png"),
+                      _buildPlayerButton("Torre", "Spain", "assets/torre.png"),
+                    ],
+                  ),
+
+                  SizedBox(height: 14.h),
+
+                  /// ---------- TextField ----------
+                  _buildTextfield(
+                    label: "Player Name",
+                    hintText: "Enter Player Name",
+                  ),
+
+                  SizedBox(height: 14.h),
+
+                  /// ---------- Action Buttons ----------
+                  Row(
+                    children: [
+                      _buildButton("⚽ Goal", Colors.green, null, () {}),
+                      SizedBox(width: 10.w),
+                      _buildButton("😔 Miss", Colors.red, null, () {}),
+                      SizedBox(width: 10.w),
+                      _buildButton(
+                        "Undo",
+                        Color(0xFFFFFAF0),
+                        Color(0xFFEE8B00),
+                        () {},
+                        textColor: Color(0xFFEE8B00),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 16.h),
+                  SizedBox(
+                    height: 34.h,
+                    width: 311.w,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(width: 1.w, color: Colors.green),
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "End Match",
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16.h),
+                ],
+              ),
             ),
           ),
         ),
@@ -1318,6 +1329,378 @@ Future<void> LivecontrolTeam(BuildContext context) {
   String selectedTeam = 'Team 1';
   final List<String> teams = ['Team 1', 'Team 2'];
   int minute = 42;
+
+  Widget _buildContainer(String text) {
+    return Container(
+      height: 28.h,
+      width: 117.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6.r),
+        border: Border.all(width: 1.w, color: Color(0x442E8F40)),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  return showDialog(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: Colors.white,
+
+        child: StatefulBuilder(
+          builder: (context, setState) {
+            return Container(
+              height: 535.h,
+              width: 343.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 16.h),
+                      Row(
+                        children: [
+                          Text(
+                            "Live Control",
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF061D3D),
+                            ),
+                          ),
+                          Spacer(),
+                          InkWell(
+                            onTap: () => Navigator.of(context).pop(),
+                            child: Container(
+                              height: 20.h,
+                              width: 20.w,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Color(0xFF292A6A),
+                                  width: 1.25.w,
+                                ),
+                              ),
+                              alignment: Alignment.center,
+                              child: Icon(
+                                Icons.close,
+                                color: Color(0xFF292A6A),
+                                size: 15.sp,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: 6.h),
+
+                      Row(
+                        children: [
+                          Text(
+                            "Team",
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                          Spacer(),
+                          // Team logo
+                          Icon(
+                            Icons.sports_soccer,
+                            size: 30.w,
+                            color: Colors.black,
+                          ),
+                          SizedBox(width: 8),
+                          Expanded(
+                            child: DropdownButtonHideUnderline(
+                              child: DropdownButton<String>(
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Color(0xFF1C1C1C),
+                                ),
+                                value: selectedTeam,
+                                items:
+                                    teams.map((team) {
+                                      return DropdownMenuItem(
+                                        value: team,
+                                        child: Text(team),
+                                      );
+                                    }).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    selectedTeam = value!;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 14.h),
+                      Text(
+                        "Action",
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF061D3D),
+                        ),
+                      ),
+                      SizedBox(height: 7.h),
+                      Row(
+                        children: [
+                          _buildContainer("⚽ Goal"),
+                          Spacer(),
+                          _buildContainer("🟨 Yellow Card"),
+                        ],
+                      ),
+                      SizedBox(height: 11.h),
+                      Row(
+                        children: [
+                          _buildContainer("🟥 Red Card"),
+                          Spacer(),
+                          _buildContainer("🔄 Substitute"),
+                        ],
+                      ),
+                      SizedBox(height: 11.h),
+                      Row(
+                        children: [
+                          _buildContainer("🚩 Penalty"),
+                          Spacer(),
+                          _buildContainer("🤕 Injury"),
+                        ],
+                      ),
+                      SizedBox(height: 16.h),
+                      Text(
+                        "Minute",
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF061D3D),
+                        ),
+                      ),
+                      SizedBox(height: 5.h),
+                      Container(
+                        height: 30.h,
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Color(0xFFEDF1F3),
+                            width: 1.w,
+                          ),
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "$minute Min",
+                              style: TextStyle(
+                                fontSize: 8.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey.shade600,
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      minute++;
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.keyboard_arrow_up,
+                                    size: 14.sp,
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      if (minute > 0) minute--;
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    size: 14.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 16.h),
+
+                      Text(
+                        "Suggestion Player",
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF061D3D),
+                        ),
+                      ),
+
+                      SizedBox(height: 8.h),
+
+                      Wrap(
+                        spacing: 20.w,
+                        runSpacing: 14.h,
+                        children: [
+                          _buildPlayerButton(
+                            "Gavi",
+                            "Spain",
+                            "assets/gavi.png",
+                          ),
+                          _buildPlayerButton(
+                            "Pedri",
+                            "Spain",
+                            "assets/pedri.png",
+                          ),
+                          _buildPlayerButton(
+                            "Torre",
+                            "Spain",
+                            "assets/torre.png",
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: 16.h),
+                      _buildTextfield(
+                        label: "Player Name",
+                        hintText: "Enter Player Name",
+                      ),
+                      SizedBox(height: 12.h),
+
+                      _buildTextfield(
+                        label: "Assist ( Optional )",
+                        hintText: "Enter Assist",
+                      ),
+
+                      SizedBox(height: 14.h),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 34.h,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFFFFFAF0),
+
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                      color: Color(0xFFEE8B00),
+                                      width: 1.w,
+                                    ),
+                                    borderRadius: BorderRadius.circular(6.r),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  "Undo",
+                                  style: TextStyle(
+                                    color: Color(0xFFEE8B00),
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 13.w),
+                          Expanded(
+                            child: SizedBox(
+                              height: 34.h,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF67B311),
+
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.r),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  "Add",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16.h),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      );
+    },
+  );
+}
+
+Future<void> finalresult(BuildContext context) {
+  int minute = 43;
+  Widget _buildContainer(String text) {
+    return Container(
+      height: 28.h,
+      width: 117.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6.r),
+        border: Border.all(width: 1.w, color: Color(0x442E8F40)),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildscoreplayer({required String playername}) {
+    return Text(
+      playername,
+      style: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w500,
+        color: Color(0xFF292A6A),
+      ),
+    );
+  }
+
   return showDialog(
     context: context,
     builder: (context) {
@@ -1327,19 +1710,20 @@ Future<void> LivecontrolTeam(BuildContext context) {
         child: StatefulBuilder(
           builder: (context, setState) {
             return Container(
-              height: 600.h,
+              height: 663.h,
               width: 343.w,
               decoration: BoxDecoration(),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                padding: EdgeInsets.symmetric(horizontal: 13.w),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 16.h),
                     Row(
                       children: [
                         Text(
-                          "Live Control",
+                          "Final Result",
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w600,
@@ -1370,52 +1754,141 @@ Future<void> LivecontrolTeam(BuildContext context) {
                       ],
                     ),
 
-                    SizedBox(height: 6.h),
+                    SizedBox(height: 14.h),
 
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          "Team",
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.grey.shade600,
-                          ),
-                        ),
-                        Spacer(),
-                        // Team logo
-                        Icon(
-                          Icons.sports_soccer,
-                          size: 30.w,
-                          color: Colors.black,
-                        ),
-                        SizedBox(width: 8),
-                        Expanded(
-                          child: DropdownButtonHideUnderline(
-                            child: DropdownButton<String>(
-                              icon: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Color(0xFF1C1C1C),
-                              ),
-                              value: selectedTeam,
-                              items:
-                                  teams.map((team) {
-                                    return DropdownMenuItem(
-                                      value: team,
-                                      child: Text(team),
-                                    );
-                                  }).toList(),
-                              onChanged: (value) {
-                                setState(() {
-                                  selectedTeam = value!;
-                                });
-                              },
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Team 1
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/549 2.svg",
+                                  height: 32.h,
+                                  width: 32.w,
+                                  fit: BoxFit.contain,
+                                ),
+                                SizedBox(width: 8.w),
+                                Text(
+                                  'Team 1',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
+
+                            // Scores in center
+                            Row(
+                              children: [
+                                Container(
+                                  width: 55.w,
+                                  height: 24.h,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                    color: Color(0xFF061D3D),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      '0',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 13.w),
+                                Container(
+                                  width: 55.w,
+                                  height: 24.h,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                    color: Color(0xFF061D3D),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      '0',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            // Team 2
+                            Row(
+                              children: [
+                                Text(
+                                  'Team 2',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(width: 8.w),
+                                SvgPicture.asset(
+                                  "assets/Manchester_City_FC_badge.svg",
+                                  height: 32.h,
+                                  width: 32.w,
+                                  fit: BoxFit.contain,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 14.h),
+
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                _buildscoreplayer(playername: "Antony 32’"),
+                                _buildscoreplayer(playername: "Jiyas 76’"),
+                                _buildscoreplayer(playername: "Kamalesh76’"),
+                                _buildscoreplayer(playername: "Aslam 76’"),
+                              ],
+                            ),
+
+                            Spacer(),
+
+                            SvgPicture.asset(
+                              "assets/bx_football.svg",
+                              color: Colors.green,
+                              height: 16.h,
+                              width: 16.h,
+                            ),
+                            Spacer(),
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                _buildscoreplayer(
+                                  playername: "Diogo Dalot 76’",
+                                ),
+                                _buildscoreplayer(playername: "Antony 32’"),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    SizedBox(height: 14.h),
+
+                    SizedBox(height: 16.h),
                     Text(
                       "Action",
                       style: TextStyle(
@@ -1477,171 +1950,145 @@ Future<void> LivecontrolTeam(BuildContext context) {
                             style: TextStyle(
                               fontSize: 8.sp,
                               fontWeight: FontWeight.w400,
-
                               color: Colors.grey.shade600,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "$minute Min",
-                                  style: TextStyle(
-                                    fontSize: 8.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey.shade600,
-                                  ),
-                                ),
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .center, // ✅ Center icons
-                                  children: [
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          minute++;
-                                        });
-                                      },
-                                      child: Icon(
-                                        Icons.keyboard_arrow_up,
-                                        size: 14.sp, // ✅ smaller so it fits
-                                      ),
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          if (minute > 0) minute--;
-                                        });
-                                      },
-                                      child: Icon(
-                                        Icons.keyboard_arrow_down,
-                                        size: 14.sp,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 16.h),
-
-                          Text(
-                            "Suggestion Player",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFF061D3D),
-                            ),
-                          ),
-
-                          SizedBox(height: 8.h),
-
-                          Wrap(
-                            spacing: 20.w,
-                            runSpacing: 14.h,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              _buildPlayerButton(
-                                "Gavi",
-                                "Spain",
-                                "assets/gavi.png",
-                              ),
-                              _buildPlayerButton(
-                                "Pedri",
-                                "Spain",
-                                "assets/pedri.png",
-                              ),
-                              _buildPlayerButton(
-                                "Torre",
-                                "Spain",
-                                "assets/torre.png",
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: 16.h),
-                          _buildTextfield(
-                            label: "Player Name",
-                            hintText: "Enter Player Name",
-                          ),
-                          SizedBox(height: 12.h),
-
-                          _buildTextfield(
-                            label: "Assist ( Optional )",
-                            hintText: "Enter Assist",
-                          ),
-
-                          SizedBox(height: 14.h),
-
-                          Row(
-                            children: [
-                              Expanded(
-                                child: SizedBox(
-                                  height: 34.h,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFFFFFAF0),
-
-                                      shape: RoundedRectangleBorder(
-                                        side: BorderSide(
-                                          color: Color(0xFFEE8B00),
-                                          width: 1.w,
-                                        ),
-                                        borderRadius: BorderRadius.circular(
-                                          6.r,
-                                        ),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text(
-                                      "Undo",
-                                      style: TextStyle(
-                                        color: Color(0xFFEE8B00),
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    minute++;
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.keyboard_arrow_up,
+                                  size: 14.sp,
                                 ),
                               ),
-                              SizedBox(width: 13.w),
-                              Expanded(
-                                child: SizedBox(
-                                  height: 34.h,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFF67B311),
-
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                          8.r,
-                                        ),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text(
-                                      "Add",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    if (minute > 0) minute--;
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  size: 14.sp,
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 16.h),
                         ],
                       ),
                     ),
+
+                    SizedBox(height: 16.h),
+
+                    Text(
+                      "Suggestion Player",
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF061D3D),
+                      ),
+                    ),
+
+                    SizedBox(height: 8.h),
+
+                    Wrap(
+                      spacing: 20.w,
+                      runSpacing: 14.h,
+                      children: [
+                        _buildPlayerButton("Gavi", "Spain", "assets/gavi.png"),
+                        _buildPlayerButton(
+                          "Pedri",
+                          "Spain",
+                          "assets/pedri.png",
+                        ),
+                        _buildPlayerButton(
+                          "Torre",
+                          "Spain",
+                          "assets/torre.png",
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 16.h),
+                    _buildTextfield(
+                      label: "Player Name",
+                      hintText: "Enter Player Name",
+                    ),
+                    SizedBox(height: 12.h),
+
+                    _buildTextfield(
+                      label: "Assist ( Optional )",
+                      hintText: "Enter Assist",
+                    ),
+
+                    SizedBox(height: 14.h),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 34.h,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFFFFFAF0),
+
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: Color(0xFFEE8B00),
+                                    width: 1.w,
+                                  ),
+                                  borderRadius: BorderRadius.circular(6.r),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "Undo",
+                                style: TextStyle(
+                                  color: Color(0xFFEE8B00),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 13.w),
+                        Expanded(
+                          child: SizedBox(
+                            height: 34.h,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFF67B311),
+
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "Add",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.h),
                   ],
                 ),
               ),
@@ -1650,25 +2097,5 @@ Future<void> LivecontrolTeam(BuildContext context) {
         ),
       );
     },
-  );
-}
-
-Widget _buildContainer(String text) {
-  return Container(
-    height: 28.h,
-    width: 117.h,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(6.r),
-      border: Border.all(width: 1.w, color: Color(0x442E8F40)),
-    ),
-    alignment: Alignment.center,
-    child: Text(
-      text,
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 12.sp,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
   );
 }
